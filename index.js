@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const UserModel = require('./models/Users');
+const UserModel = require('./model/Users');
 require('dotenv').config(); // Load environment variables
 
 const app = express();
