@@ -19,10 +19,7 @@ app.use(express.json());
 // ✅ MongoDB Connection
 async function connectDB() {
     try {
-        await mongoose.connect(process.env.MONGO_URI || "", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGO_URI || "");
         console.log("✅ MongoDB Connected");
     } catch (error) {
         console.error("❌ MongoDB Connection Error:", error.message);
@@ -33,7 +30,7 @@ connectDB(); // Connect to DB
 
 // ✅ Test Route
 app.get('/', (req, res) => {
-    res.send("🚀 Server is running on Vercel!");
+    res.send("🚀 Server is running on Render!");
 });
 
 // ✅ GET all users
@@ -93,5 +90,8 @@ app.delete('/users/:id', async (req, res) => {
     }
 });
 
-// ✅ Export for Vercel
-module.exports = app;
+// ✅ Start the server (REQUIRED for Render)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`🚀 Server is running on port ${PORT}`);
+});
