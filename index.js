@@ -30,7 +30,7 @@ connectDB(); // Connect to DB
 
 // ✅ Test Route
 app.get('/', (req, res) => {
-    res.send("🚀 Server is running on Render!");
+    res.send("🚀 Server is running on Render..!");
 });
 
 // ✅ GET all users
